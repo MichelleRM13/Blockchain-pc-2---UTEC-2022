@@ -161,7 +161,7 @@ function setUpListeners() {
     }
   });
 
-  
+  //Comprar NFT con ethers
   var bttn = document.getElementById("purchaseEthButton");
   bttn.addEventListener("click", async function () {
     console.log("Btn purchase Nft (with Ether)...");
@@ -183,6 +183,7 @@ function setUpListeners() {
     }
   });
 
+  //Comprar NFT con envio de ethers
   var bttn = document.getElementById("sendEtherButton");
   bttn.addEventListener("click", async function () {
     console.log("Btn send Ether to Contract...");
