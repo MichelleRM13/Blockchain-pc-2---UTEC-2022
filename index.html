@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+
+<body>
+    <style>
+        .msgError {
+            color: red;
+        }
+
+        .input-field input:focus+label {
+            color: #b39ddb !important;
+        }
+
+        .row .input-field input:focus {
+            border-bottom: 1px solid #b39ddb !important;
+            box-shadow: 0 1px 0 0 #b39ddb !important;
+        }
+    </style>
+    <div id="loading">
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col s4 offset-s1" style="text-align: right;">
+                <button class="waves-effect waves-light btn-large deep-purple lighten-3" id="connect">Conectar con
+                    Metamask
+                    <i class="material-icons right">rss_feed</i>
+                </button>
+            </div>
+            <div class="col s4 offset-s2" style="text-align: left;">
+                <button class="waves-effect waves-light btn-large deep-purple lighten-3" id="switch">Cambiar a Mumbai
+                    <i class="material-icons right">switch_left</i>
+                </button>
+            </div>
+        </div>
+
+        </br>
+
+        <div class="row">
+            <div class="card horizontal col s10 offset-s1">
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <span class="card-title">Balances</span>
+                        <div class="row">
+                            <div class="col s10">
+                                <label for="usdcBalance">USD Coin Balance: </label>
+                                <span id="usdcBalance"></span>
+                                <button class="waves-effect waves-light btn-small deep-purple lighten-3"
+                                    id="usdcUpdate">Refresh
+                                    <i class="material-icons right">cached</i>
+                                </button>
+                                <span id="usdcBalanceError" class="msgError"></span>
+                            </div>
+                            <div class="col s10" style="margin-top: 3%">
+                                <label for="miPrimerTknBalance">Mi Primer Token Balance: </label>
+                                <span id="miPrimerTknBalance"></span>
+                                <button class="waves-effect waves-light btn-small deep-purple lighten-3"
+                                    id="miPrimerTknUpdate">Refresh
+                                    <i class="material-icons right">cached</i>
+                                </button>
+                                <span id="miPrimerTknBalanceError" class="msgError"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card horizontal col s10 offset-s1">
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <span class="card-title">Mi Primer Token (Goerli)</span>
+
+                        <div class="input-field inline" style="width: 75%;">
+                            <input id="approveInput" name="approveInput" type="text" style="margin-bottom: 0px;">
+                            <label for="approveInput">Approve Mi Primer Token</label>
+                            <span class="msgError" id="approveError"></span>
+                        </div>
+                        <button class="waves-effect waves-light btn-small deep-purple lighten-3"
+                            style="margin-left: 10px;" id="approveButton">
+                            Approve <i class="material-icons right">credit_score</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card horizontal col s10 offset-s1">
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <span class="card-title">Public Sale (Goerli)</span>
+                        <div class="input-field inline" style="width: 75%;">
+                            <input id="purchaseInput" name="purchaseInput" type="text" style="margin-bottom: 0px;">
+                            <label for="purchaseInput">Purchase By Id</label>
+                            <span class="msgError" id="purchaseError"></span>
+                        </div>
+                        <button class="waves-effect waves-light btn-small deep-purple lighten-3"
+                            style="margin-left: 10px;" id="purchaseButton">
+                            Purchase <i class="material-icons right">sell</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card horizontal col s10 offset-s1">
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <span class="card-title">Purchase NFT</span>
+                        <div class="row">
+                            <div class="col s6">
+                                <label for="purchaseEthInput">Purchase Nft (with Ether)</label>
+                                <!-- <span id="usdcBalance"></span> -->
+                                <button class="waves-effect waves-light btn-small deep-purple lighten-3"
+                                    id="purchaseEthButton">Purchase with Ether
+                                    <i class="material-icons right">sell</i>
+                                </button>
+                                <span id="purchaseEthError" class="msgError"></span>
+                            </div>
+                            <div class="col s6">
+                                <label for="sendEtherInput">Send Ether to Contract</label>
+                                <!-- <span id="miPrimerTknBalance"></span> -->
+                                <button class="waves-effect waves-light btn-small deep-purple lighten-3"
+                                    id="sendEtherButton">Send
+                                    <i class="material-icons right">send</i>
+                                </button>
+                                <span id="sendEtherError" class="msgError"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card horizontal col s10 offset-s1">
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <span class="card-title">NFT Contract (Polygon) - Events</span>
+                        <ul id="nftList" class="collection">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

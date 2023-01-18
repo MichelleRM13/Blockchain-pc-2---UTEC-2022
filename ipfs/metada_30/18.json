@@ -1,0 +1,12 @@
+{
+  "name": "RARO_MOCHE#18",
+  "description": "NFT CUYS MOCHE para intercambio entre tokens USDC y MPRTKN",
+  "image": "ipfs://QmVgMH3f7JdJctLcAfGi92Tc3tYfzbmta7MSFz8CdDLYVN/18.png",
+  "attributes": [
+    { "trait_type": "MANTO", "value": "MANTO TIERRA" },
+    { "trait_type": "BANCO", "value": "HUACO" },
+    { "trait_type": "CUY", "value": "CUY HUACO" },
+    { "trait_type": "CHULLO", "value": "CHULLO PERU" },
+    { "trait_type": "CARA", "value": "OJOS BASE" }
+  ]
+}

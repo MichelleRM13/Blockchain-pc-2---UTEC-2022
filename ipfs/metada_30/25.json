@@ -1,0 +1,12 @@
+{
+  "name": "LEGENDARIO_MOCHE#25",
+  "description": "NFT CUYS MOCHE para intercambio entre tokens USDC y MPRTKN",
+  "image": "ipfs://QmVgMH3f7JdJctLcAfGi92Tc3tYfzbmta7MSFz8CdDLYVN/25.png",
+  "attributes": [
+    { "trait_type": "MANTO", "value": "MANTO NASCA" },
+    { "trait_type": "BANCO", "value": "TRONCO" },
+    { "trait_type": "CUY", "value": "CUY HIELO" },
+    { "trait_type": "CHULLO", "value": "FORASTERO" },
+    { "trait_type": "CARA", "value": "LENTES" }
+  ]
+}
